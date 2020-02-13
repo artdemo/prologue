@@ -1,0 +1,18 @@
+.toggle {
+	border: none;
+	width: $pad_changer;
+	height: 42px;
+	background: $oslo-gray_through;
+	border-radius: 6px;
+	cursor: pointer;
+	outline: none;
+
+	@include render(desktop) {
+		display: none;
+	}
+
+	&__icon {
+	font-size: 18px;
+	color: $white;
+	}
+}

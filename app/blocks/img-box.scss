@@ -1,0 +1,13 @@
+.img-box {
+  padding: $pad_cup 0;
+
+  @include render(tablet) {
+  	padding: 21px 0;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}

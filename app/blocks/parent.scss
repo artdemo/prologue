@@ -1,0 +1,20 @@
+.parent {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+
+  &__menu_visible {
+    .wrapper {
+      transform: translate($width_menu_phone);
+
+      @include render(desktop) {
+        transform: translate(0);
+      }
+    }
+
+    .menu {
+      transform: translate(0px);
+      z-index: 1;
+    }
+  }
+}

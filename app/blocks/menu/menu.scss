@@ -1,0 +1,40 @@
+.menu {
+  width: $width_menu_phone;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  background-color: $shark;
+  transform: translate(-$width_menu_phone);
+  -webkit-overflow-scrolling: touch;
+    z-index: 1100;
+
+
+  @include render(desktop) {
+    transform: translate(0);
+    width: $width_menu_desktop;
+  }
+
+  @include render('desktop_hd') {
+    width: $width_menu_desktop_hd;
+  }
+
+  &__toggle {
+
+    .toggle {
+      position: absolute;
+      top: 10px;
+      right: -($pad_changer + 10px);
+    }
+  }
+
+  &__socials {
+    .socials {
+      @include render(desktop) {
+        bottom: 0;
+        box-sizing: border-box;
+        position: absolute;
+        width: 100%;
+      }
+    }
+  }
+}

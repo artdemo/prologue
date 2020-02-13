@@ -1,0 +1,32 @@
+.button {
+  background-color: $shadow-green;
+  border-radius: 6px;
+  border: none;
+  box-sizing: content-box;
+  color: $white;
+  cursor: pointer;
+  display: inline-block;
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: inherit;
+  height: 60px;
+  line-height: 60px;
+  max-width: 200px;
+  outline: none;
+  overflow: hidden;
+  padding: 0 46px;
+  text-decoration: none;
+  text-transform: capitalize;
+
+  &:hover {
+    background-color: $sinbad;
+  }
+
+  @include render(tablet) {
+    font-size: 21px;
+    height: 69px;
+    line-height: 69px;
+    padding: 0 53px;
+    border-radius: 7px;
+  }
+}

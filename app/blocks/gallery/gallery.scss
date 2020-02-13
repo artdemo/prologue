@@ -1,0 +1,42 @@
+.gallery {
+  display: flex;
+  flex-flow: column wrap;
+  margin-bottom: -20px;
+
+  @include render(tablet) {
+    margin-right: -10px;
+    margin-left: -10px;
+  }
+
+  &__item {
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100%;
+    margin-bottom: 20px;
+
+    @include render(tablet) {
+      width: 33.33%;
+      padding: 0 10px;
+    }
+  }
+
+  &__header {
+    margin: 0;
+    order: 2;
+    font-size: 15px;
+    font-weight: 300;
+    padding: $pad_lol;
+    background: $white;
+
+    @include render(tablet) {
+    	font-size: 18px;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}

@@ -1,0 +1,16 @@
+.link {
+  text-decoration: none;
+  border-bottom: 1px dotted;
+  color: inherit;
+
+  &:hover {
+    border-bottom-color: transparent;
+  }
+
+  &_highlight {
+
+    &:hover {
+      color: $deep-blush;
+    }
+  }
+}
