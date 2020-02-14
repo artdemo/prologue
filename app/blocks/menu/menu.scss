@@ -1,22 +1,22 @@
 .menu {
+  box-sizing: border-box;
   width: $width_menu_phone;
   position: fixed;
   top: 0;
-  bottom: 0;
+  //To prevent an ugly blinc when scrolling on ios 
+  bottom: -70px;
   background-color: $shark;
-  transform: translate(-$width_menu_phone);
-  -webkit-overflow-scrolling: touch;
+  transform: translateX(-$width_menu_phone);
   z-index: 1000;
 
-
   @include render(tablet) {
-    transform: translate(-$width_menu_tablet);
+    transform: translateX(-$width_menu_tablet);
     width: $width_menu_tablet;
   }
 
 
   @include render(desktop) {
-    transform: translate(0);
+    transform: translateX(0);
     width: $width_menu_desktop;
   }
 
@@ -25,7 +25,6 @@
   }
 
   &__toggle {
-
     .toggle {
       position: absolute;
       top: 10px;
@@ -36,9 +35,9 @@
   &__socials {
     .socials {
       @include render(desktop) {
-        bottom: 0;
+        bottom: 70px;
         box-sizing: border-box;
-        position: absolute;
+        position: absolute; 
         width: 100%;
       }
     }

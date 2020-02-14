@@ -14,7 +14,7 @@ function Navigation({
 
   function getIdFromHref(elem) {
     let href = elem.getAttribute('href');
-
+ 
     if (!href.startsWith('#')) return false;
 
     return href.slice(1);
@@ -46,7 +46,7 @@ function Navigation({
       let content = document.getElementById(id),
         contentBorders = getContentBorders(content);
 
-      //Find and save a link of the topmost content 
+      //Find and save a link of the topmost&downmost content 
       if (!i || top < j) {
         i = link;
         j = contentBorders.top;
@@ -78,8 +78,8 @@ function Navigation({
 
   function highlightLink() {
     let link = getLinkFromPoint();
-
-    if (link == currentActiveLink) return;
+    //If it's the same content of if there is no any content at the point
+    if (link == currentActiveLink || !link) return;
 
     if (currentActiveLink) currentActiveLink.classList.remove(navLinkActiveClass);
 

@@ -11,12 +11,12 @@
       }
 
       @include render(desktop) {
-        transform: translate(0);
+        transform: translateX(0);
       }
     }
 
     .menu {
-      transform: translate(0px);
+      transform: translateX(0px);
       z-index: 1;
     }
   }
