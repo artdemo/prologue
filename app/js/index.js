@@ -30,7 +30,6 @@ const toggle = new Toggle({
 //==========NAVIGATION STUFF==========//
 //Kickoff the polyfill
 Smoothscroll.polyfill();
-// window.__forceSmoothScrollPolyfill__ = true;
 
 const nav = new Navigation({
   navClass: '.nav',
@@ -38,25 +37,23 @@ const nav = new Navigation({
   navLinkActiveClass: 'nav__link_active'
 })
 
-//Init gallery & navigation after load all images so as to get right sizes
-
+//Init gallery & navigation after loading all images so as to get correct sizes
 window.addEventListener('load', function() {
   flexBox.style.display = '';
 
-  if (window.innerWidth <= breakpoints.tablet) return;
+  if (window.innerWidth >= breakpoints.tablet) gallery.init(columns.tablet);;
 
-  gallery.init(columns.tablet);
-  nav.init();
-
+  nav.init()
 });
 
 window.addEventListener('resize', function() {
 
   if (window.innerWidth < breakpoints.tablet) {
-
     gallery.init(columns.phone);
-    return;
+  } else {
+    gallery.init(columns.tablet);
   }
 
-  gallery.init(columns.tablet);
+  nav.init();
 });
+

@@ -1,7 +1,8 @@
 function Navigation({
   navClass,
   navLinkClass,
-  navLinkActiveClass
+  navLinkActiveClass,
+  
 }) {
   let nav = document.querySelector(navClass),
     offsetY,
@@ -33,7 +34,7 @@ function Navigation({
 
   function listLinksContent() {
     let links = nav.querySelectorAll(navLinkClass),
-      i, 
+      i,
       j;
 
     for (let link of links) {
@@ -45,7 +46,7 @@ function Navigation({
       let content = document.getElementById(id),
         contentBorders = getContentBorders(content);
 
-      //Find and save  a link of the topmost content 
+      //Find and save a link of the topmost content 
       if (!i || top < j) {
         i = link;
         j = contentBorders.top;
@@ -86,23 +87,30 @@ function Navigation({
     currentActiveLink = link;
   }
 
+  function throttleThis(func, ms) {
+    if (isThrottled) return;
+
+    func();
+
+    isThrottled = true;
+
+    setTimeout(() => {
+      func();
+      isThrottled = false;
+    }, ms);
+  }
+
   this.init = function() {
+    offsetY = centerY = null;
+
     listLinksContent();
     highlightLink();
 
     window.addEventListener('scroll', function(e) {
-      if (isThrottled) return;
 
-      highlightLink();
+      throttleThis(highlightLink, 100);
 
-      isThrottled = true;
-
-      setTimeout(() => {
-        highlightLink();
-        isThrottled = false;
-      }, 300);
-
-    })
+    });
 
     nav.addEventListener('click', function(e) {
 

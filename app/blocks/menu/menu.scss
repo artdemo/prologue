@@ -6,7 +6,13 @@
   background-color: $shark;
   transform: translate(-$width_menu_phone);
   -webkit-overflow-scrolling: touch;
-    z-index: 1100;
+  z-index: 1000;
+
+
+  @include render(tablet) {
+    transform: translate(-$width_menu_tablet);
+    width: $width_menu_tablet;
+  }
 
 
   @include render(desktop) {
