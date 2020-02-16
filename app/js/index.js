@@ -29,7 +29,7 @@ const toggle = new Toggle({
 
 //==========NAVIGATION STUFF==========//
 //Kickoff the polyfill
-Smoothscroll.polyfill();
+Smoothscroll.polyfill(); 
 
 const nav = new Navigation({
   navClass: '.nav',
@@ -56,32 +56,3 @@ window.addEventListener('resize', function() {
 
   nav.init();
 });
-
-// let menu = document.querySelector('.menu');
-// const socials = document.querySelector('.socials');
-// let flag = false;
-// let winHeight = window.innerHeight;
-
-
-// window.addEventListener('scroll', () => {
-//   // if (flag) return;
-//   let currentHeight = window.innerHeight;
-
-//   if (winHeight == currentHeight) return;
-
-//   winHeight = currentHeight;
-
-//   console.log(winHeight)
-
-//   socials.style.transitionProperty = 'none';
-//   socials.style.opacity = 0;
-
-//   // flag = true;
-
-//   setTimeout(() => {
-//     // flag = false;
-//   socials.style.transitionProperty = 'all';
-
-//     socials.style.opacity = 1; 
-//   }, 500)
-// })

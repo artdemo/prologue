@@ -16,49 +16,41 @@
   }
 
   &__avatar-box {
-  	width: 48px;
-  	height: 48px;
-      float: right;
-      margin-bottom: 20px;
+    width: 48px;
+    height: 48px;
+    float: right;
+    margin-bottom: 20px;
 
     @include render('desktop') {
-    float: left;
+      float: left;
     }
   }
 
   &__id {
-    font-size: 19px;
+    font-size: 25px;
     font-weight: 600;
     color: $white;
     margin: 0;
     float: right;
-      clear: right;
-
-    @include render(tablet) {
-      font-size: 21px;
-    }
-
-    @include render('desktop') {
-    }
+    clear: right;
 
     @include render('desktop_hd') {
-      font-size: 25px;
+      font-size: 30px;
     }
   }
 
   &__descriptor {
     float: right;
     clear: right;
-    font-size: 11px;
+    font-size: 13px;
     color: $white_through;
     margin: 6px 0 0;
 
     @include render(tablet) {
-      font-size: 12px;
       line-height: 16px;
     }
 
-     @include render(desktop_hd) {
+    @include render(desktop_hd) {
       font-size: 14px;
     }
   }

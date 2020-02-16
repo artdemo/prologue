@@ -40,18 +40,6 @@ gulp.task('sass', async function() {
 gulp.task('js', async function() {
   gulp.src('./app/js/index.js')
     .pipe(webpack({
-      // module: {
-      //   rules: [{
-      //     test: /\.js$/,
-      //     exclude: /node_modules/,
-      //     use: {
-      //       loader: 'babel-loader',
-      //       options: {
-      //         presets: ['@babel/preset-env']
-      //       }
-      //     }
-      //   }]
-      // },
       mode: 'development',
       devtool: 'eval-source-map',
       output: {

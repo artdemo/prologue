@@ -8,7 +8,7 @@
   cursor: pointer;
   display: inline-block;
   font-family: inherit;
-  font-size: 18px;
+  font-size: $f-s_s;
   font-weight: inherit;
   height: 60px;
   line-height: 60px;
@@ -25,10 +25,14 @@
   }
 
   @include render(tablet) {
-    font-size: 21px;
+    font-size: $f-s_m;
     height: 69px;
     line-height: 69px;
     padding: 0 53px;
     border-radius: 7px;
+  }
+
+  @include render(desktop_hd) {
+    font-size: $f-s_l;
   }
 }

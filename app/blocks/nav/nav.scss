@@ -38,7 +38,7 @@
       padding: 10px $pad_doe_desktop;
     }
 
-    @include render('desktop_hd') {
+    @include render(desktop_hd) {
       padding: 10px $pad_doe_desktop_hd;
     }
 
@@ -57,15 +57,20 @@
 
   &__text {
     margin-left: auto;
-    font-size: 15px;
+    font-size: 17px;
     color: $white_through;
 
     @include render(tablet) {
-      font-size: 17px;
+      font-size: 20px;
     }
 
     @include render(desktop) {
+      font-size: 17px;
       order: 1;
+    }
+
+    @include render(desktop_hd) {
+      font-size: 20px;
     }
   }
 

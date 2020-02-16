@@ -10,7 +10,11 @@
   }
 
   @include render(desktop) {
-    padding: $pad_doe_desktop $pad_doe_desktop 16px;
+    padding: $pad_doe_desktop;
+  }
+
+  @include render(desktop_hd) {
+    padding: $pad_doe_desktop_hd;
   }
 
   &__item {}
