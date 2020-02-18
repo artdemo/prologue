@@ -53,7 +53,7 @@
     float: right;
     clear: right;
     font-size: 13px;
-    color: $white_through;
+    color: rgba($white, .5);
     margin: 6px 0 0;
 
     @include render(tablet) {

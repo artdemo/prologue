@@ -20,6 +20,8 @@
   text-transform: capitalize;
   -webkit-appearance: none;
 
+  @include transition(background-color);
+
   &:hover {
     background-color: $sinbad;
   }

@@ -24,7 +24,7 @@
       &:nth-child(odd) {
         text-align: right;
         padding-right: 9px;
-        border-right: 1px solid $oslo-gray_through_light;
+        border-right: 1px solid rgba($oslo-gray, .35);
       }
 
       &:nth-child(even) {

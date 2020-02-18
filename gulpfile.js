@@ -5,9 +5,7 @@ const gulp = require('gulp'),
   webpack = require('webpack-stream'),
   responsive = require('gulp-responsive'),
   rename = require('gulp-rename'),
-  cache = require('gulp-cached'),
-  clean = require('gulp-clean');
-
+  cache = require('gulp-cached');
 
 sass.compile = require('node-sass');
 
@@ -129,11 +127,6 @@ gulp.task('image', async function() {
     .pipe(gulp.dest('./dist/imgs/avatar'));
 });
 
-gulp.task('clean', async function() {
-  gulp.src('./dist/**', { read: false })
-  .pipe(clean());
-})
-
 gulp.task('watch', async function() {
   gulp.watch('./app/index.html').on('change', gulp.series('html', serve.reload));
   gulp.watch('./app/(blocks|sass)/**/*.scss').on('change', gulp.series('sass'));
@@ -142,7 +135,6 @@ gulp.task('watch', async function() {
 });
 
 gulp.task('default', gulp.series(
-  'clean',
   'html',
   'sass',
   'js',

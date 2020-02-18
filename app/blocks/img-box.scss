@@ -1,13 +1,17 @@
 .img-box {
-  padding: $pad_cup 0;
+  display: block;
+  overflow: hidden;
+  position: relative;
 
-  @include render(tablet) {
-  	padding: 21px 0;
-  }
-
-  img {
+  &__img {
     width: 100%;
     height: auto;
     display: block;
+
+    @include transition(transform);
+
+    &:hover {
+      transform: scale(1.05, 1.05);
+    }
   }
 }

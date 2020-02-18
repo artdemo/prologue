@@ -7,16 +7,12 @@ function Gallery({
       []
     ],
     array = [],
-    allSum = 0,
+    allSumHeight = 0,
     mean,
     optimalHeight;
 
   const flexParent = document.querySelector(container),
-    // itemsClassName = flexParent.querySelector(item).className,
     items = flexParent.querySelectorAll(item);
-
-  // this.columns = columns;
-  // let innerWidth;
 
   function resetHeight() {
     for (item of items) {
@@ -29,21 +25,21 @@ function Gallery({
     resetHeight();
 
     for (let item of items) {
-
+      //Get full height of flex element
       let itemStyles = getComputedStyle(item),
         verticalMargins = parseFloat(itemStyles.marginTop) + parseFloat(itemStyles.marginBottom),
         itemHeight = item.offsetHeight,
         height = (itemHeight + verticalMargins);
 
-      allSum += height;
+      allSumHeight += height;
       array.push(height);
-
+      //Set height of flex element(because images at the start of rendering and at the end differ by 2px)
       item.style.height = `${itemHeight}px`;
     }
   }
 
   function getMean(columns) {
-    mean = allSum / columns;
+    mean = allSumHeight / columns;
   }
 
   function getLastArray() {
@@ -75,7 +71,7 @@ function Gallery({
 
     lastArr.push(entry);
   }
-
+  //Get all possible options how to fit flex boxes
   function findEntries(colIndex, index = 0) {
     let sum = 0;
 
@@ -117,7 +113,7 @@ function Gallery({
       }
     }
   }
-
+  //Find optimal option how to set flex boxes
   function findOptimal() {
 
     let prop = [];
@@ -140,7 +136,7 @@ function Gallery({
     getMean(columns);
     findEntries(columns);
     findOptimal();
-
+    //Set height of flex container
     flexParent.style.height = `${optimalHeight}px`;
 
     //Reset all stuff so as to call init again in case resizing window or adding new flex-item
@@ -148,7 +144,7 @@ function Gallery({
         []
       ],
       array = [],
-      allSum = 0,
+      allSumHeight = 0,
       mean = 0,
       optimalHeight = 0;
   }

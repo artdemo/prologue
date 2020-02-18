@@ -32,8 +32,8 @@
       box-shadow: 0 0 2px 0 $dove-gray;
 
       @include render(tablet) {
-      left: 10px;
-      right: 10px;
+        left: 10px;
+        right: 10px;
       }
     }
   }
@@ -45,15 +45,10 @@
     font-weight: 300;
     padding: $pad_lol;
     background: $white;
+    z-index: 100;
 
     @include render(tablet) {
       font-size: 18px;
     }
-  }
-
-  &__img {
-    width: 100%;
-    height: auto;
-    display: block;
   }
 }

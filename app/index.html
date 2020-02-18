@@ -8,11 +8,11 @@
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-<style>
+<!-- <style>
   #__bs_notify__ {
     font-size: 15px !important;
   }
-</style>
+</style> -->
 
 <body class='calmspace font'>
   <div class='parent'>
@@ -20,9 +20,7 @@
       <div class="author">
         <div class="author__avatar-box">
           <img srcset="imgs/avatar/man-s.jpg,
-                       imgs/avatar/man-m.jpg 2x"
-
-          src="imgs/avatar/man-m.jpg" alt="man smiling" class="author__avatar">
+                       imgs/avatar/man-m.jpg 2x" src="imgs/avatar/man-m.jpg" alt="man smiling" class="author__avatar">
         </div>
         <h1 class="author__id">John Doe</h1>
         <p class="author__descriptor">Hyperspace Engineer</p>
@@ -91,7 +89,7 @@
     </header>
     <div class='wrapper'>
       <section id='banner' class="section section_general section_pad_l section_theme_main section__button">
-        <h2 class="title title_outstand">Hi! I'm <span class="highlight">Prologue</span>, a <a href="#" class="highlight link">free</a> responsive site<br /> template disigned by <a href="#" class="highlight link">HTML5 UP</a>.</h2>
+        <h2 class="title title_outstand">Hi! I'm <span class="highlight">Prologue</span>, a <a href="#" class="highlight link">free</a> responsive site<br /> template disigned by <a href="https://html5up.net/" class="highlight link">HTML5 UP</a>.</h2>
         <p class="text-content text-content_outstand">Lorem ipsum dolor sit amet, consectetur adipisicing<br />felit quasi optio dignissimos, inventore.</p>
         <a href="#" class="button">Magna Aliquam</a>
       </section>
@@ -101,59 +99,63 @@
         <section class="gallery">
           <article class="gallery__item">
             <h3 class="gallery__header">Ipsum Feugiat</h3>
-            <img srcset="imgs/gallery/sabre-s.jpg 450w,
-                         imgs/gallery/sabre-m.jpg 640w"                     
-            src="imgs/gallery/sabre-m.jpg" alt="sportsman holding a sabre" class="gallery__img">
+            <a href='#' class='img-box'>
+              <img srcset="imgs/gallery/sabre-s.jpg 450w,
+                          imgs/gallery/sabre-m.jpg 640w" src="imgs/gallery/sabre-m.jpg" alt="sportsman holding a sabre" class="img-box__img">
+            </a>
           </article>
           <article class="gallery__item">
             <h3 class="gallery__header">Rhoncus Semper</h3>
-            <img srcset="imgs/gallery/box-s.jpg 450w,
-                         imgs/gallery/box-m.jpg 640w"                     
-            src="imgs/gallery/box-m.jpg" alt="two men boxing" class="gallery__img">
+            <a href='#' class='img-box'>
+              <img srcset="imgs/gallery/box-s.jpg 450w,
+                         imgs/gallery/box-m.jpg 640w" src="imgs/gallery/box-m.jpg" alt="two men boxing" class="img-box__img">
+            </a>
           </article>
           <article class="gallery__item">
             <h3 class="gallery__header">Magna Nullam</h3>
-            <img srcset="imgs/gallery/false-s.jpg 450w,
-                         imgs/gallery/false-m.jpg 640w"                     
-            src="imgs/gallery/false-m.jpg" alt="guy holding falschfeuer" class="gallery__img">
+            <a href='#' class='img-box'>
+              <img srcset="imgs/gallery/false-s.jpg 450w,
+                         imgs/gallery/false-m.jpg 640w" src="imgs/gallery/false-m.jpg" alt="guy holding falschfeuer" class="img-box__img">
+            </a>
           </article>
           <article class="gallery__item">
             <h3 class="gallery__header">Natoque Vitae</h3>
-            <img srcset="imgs/gallery/ball-s.jpg 450w,
-                         imgs/gallery/ball-m.jpg 640w"                     
-            src="imgs/gallery/ball-m.jpg" alt="ball flying through the basket" class="gallery__img">
+            <a href='#' class='img-box'>
+              <img srcset="imgs/gallery/ball-s.jpg 450w,
+                         imgs/gallery/ball-m.jpg 640w" src="imgs/gallery/ball-m.jpg" alt="ball flying through the basket" class="img-box__img">
+            </a>
           </article>
           <article class="gallery__item">
             <h3 class="gallery__header">Dolor Penatibus</h3>
-            <img srcset="imgs/gallery/judo-s.jpg 450w,
-                         imgs/gallery/judo-m.jpg 640w"                     
-            src="imgs/gallery/judo-m.jpg" alt="two judo fighters" class="gallery__img">
+            <a href='#' class='img-box'>
+              <img srcset="imgs/gallery/judo-s.jpg 450w,
+                         imgs/gallery/judo-m.jpg 640w" src="imgs/gallery/judo-m.jpg" alt="two judo fighters" class="img-box__img">
+            </a>
           </article>
           <article class="gallery__item">
             <h3 class="gallery__header">Orci Convallis</h3>
-            <img srcset="imgs/gallery/kettlebell-s.jpg 450w,
-                         imgs/gallery/kettlebell-m.jpg 640w"                     
-            src="imgs/gallery/kettlebell-m.jpg" alt="kettlebell staying on the floor" class="gallery__img">
+            <a href='#' class='img-box'>
+              <img srcset="imgs/gallery/kettlebell-s.jpg 450w,
+                         imgs/gallery/kettlebell-m.jpg 640w" src="imgs/gallery/kettlebell-m.jpg" alt="kettlebell staying on the floor" class="img-box__img">
+            </a>
           </article>
         </section>
       </main>
-      <section id='about' class="section section_general section_pad_m section_theme_spring">
+      <section id='about' class="section section_general section_pad_m section_theme_spring section__img-box">
         <h2 class="title title_pad_s">About me</h2>
-        <div class="img-box">
+        <a href='#' class='img-box'>
           <img srcset="imgs/fullwidth/seal-s.jpg 450w,
                       imgs/fullwidth/seal-m.jpg 640w,
                       imgs/fullwidth/seal-l.jpg  1366w,
-                      imgs/fullwidth/seal-xl.jpg 1980w"
-
-          src="imgs/fullwidth/seal-xl.jpg" alt="seal laying on the beach">
-        </div>
+                      imgs/fullwidth/seal-xl.jpg 1980w" src="imgs/fullwidth/seal-xl.jpg" alt="seal laying on the beach" class='img-box__img'>
+        </a>
         <p class="text-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam fugiat quisquam asperiores autem tempore possimus, nihil sed beatae temporibus rerum molestias deleniti nisi minima maiores quia et architecto aut eveniet ex ullam id? Accusantium unde atque nesciunt incidunt maxime repellendus, quis quas, pariatur placeat voluptas necessitatibus, officiis doloribus iure rerum!</p>
       </section>
       <section id='contact' class="section section_general section_pad_m section_theme_ever">
         <h2 class="title title_pad_s">Contact</h2>
         <p class="text-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat atque molestias eveniet consequuntur sed totam quis odit dolorem dignissimos nemo voluptate expedita debitis, cumque, rem delectus incidunt omnis. Quaerat fugiat officia saepe itaque alias veritatis.</p>
-        <form action="" class="form">
-          <input type="name" placeholder="Name" class='form__control form__control_input'>
+        <form action="dunno.php" class="form">
+          <input type="text" placeholder="Name" class='form__control form__control_input'>
           <input type="email" placeholder="Email" class='form__control form__control_input'>
           <textarea placeholder="Message" class='form__control form__control_area'></textarea>
           <input type="submit" value='Send message' class='button form__button'>

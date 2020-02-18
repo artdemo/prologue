@@ -1,8 +1,7 @@
 function Navigation({
   navClass,
   navLinkClass,
-  navLinkActiveClass,
-  
+  navLinkActiveClass  
 }) {
   let nav = document.querySelector(navClass),
     offsetY,
@@ -46,18 +45,18 @@ function Navigation({
       let content = document.getElementById(id),
         contentBorders = getContentBorders(content);
 
-      //Find and save a link of the topmost&downmost content 
+      //Find and save a link of the topmost content 
       if (!i || top < j) {
         i = link;
         j = contentBorders.top;
       }
-
+      //Save all entries
       linkContentEntries.set(link, {
         'content': content,
         'contentBorders': contentBorders
       });
     }
-
+    //Save topmost link out of scope
     topmostLink = i;
   }
 
@@ -65,10 +64,10 @@ function Navigation({
     let offsetY = window.pageYOffset;
     //If it's start position, the very fisrt content should be highlighted whether it's at the center or not
     if (!offsetY) return topmostLink;
-
+    //If centerY is already calculated, just get it and find currentCenter taking into account scrolling
     if (!centerY) centerY = window.innerHeight / 2;
     let currentCenterY = offsetY + centerY;
-
+    //Find content that is in the center and return its link
     for (let entry of linkContentEntries) {
       let contentBorders = entry[1].contentBorders;
 
@@ -78,7 +77,7 @@ function Navigation({
 
   function highlightLink() {
     let link = getLinkFromPoint();
-    //If it's the same content of if there is no any content at the point
+    //If it's the same content or there is no any content at the point, so do nothing
     if (link == currentActiveLink || !link) return;
 
     if (currentActiveLink) currentActiveLink.classList.remove(navLinkActiveClass);
@@ -86,12 +85,11 @@ function Navigation({
     link.classList.add(navLinkActiveClass);
     currentActiveLink = link;
   }
-
+  //Function to decrease event frequency
   function throttleThis(func, ms) {
     if (isThrottled) return;
 
     func();
-
     isThrottled = true;
 
     setTimeout(() => {

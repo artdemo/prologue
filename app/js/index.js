@@ -41,9 +41,9 @@ const nav = new Navigation({
 window.addEventListener('load', function() {
   flexBox.style.display = '';
 
-  if (window.innerWidth >= breakpoints.tablet) gallery.init(columns.tablet);;
+  if (window.innerWidth >= breakpoints.tablet) gallery.init(columns.tablet);
 
-  nav.init()
+  nav.init();
 });
 
 window.addEventListener('resize', function() {
