@@ -5,7 +5,8 @@ const gulp = require('gulp'),
   webpack = require('webpack-stream'),
   responsive = require('gulp-responsive'),
   rename = require('gulp-rename'),
-  cache = require('gulp-cached');
+  cache = require('gulp-cached'),
+  clean = require('gulp-clean');
 
 
 sass.compile = require('node-sass');
@@ -57,47 +58,96 @@ gulp.task('font', async function() {
     .pipe(gulp.dest('./dist/font'));
 });
 
-// gulp.task('image', async function() {
-//   gulp.src('./app/imgs/*.jpg')
-//     .pipe(cache('image'))
-//     .pipe(responsive({
-//       '*.jpg': [{
-//         width: 480,
-//         rename: { suffix: '-xs' }
-//       }, {
-//         width: 640,
-//         rename: { suffix: '-s' }
-//       }, {
-//        width: 800,
-//        rename: { suffix: '-m' }
-//       }, {
-//        width: 1000,
-//        rename: { suffix: '-l' }
-//       }]
-//     }, {
-//      quality: 70,
-//      progressive: true,
-//      withMetadata: false
-//     }))
-//     .on('error', function(error) {
-//      console.log(error.message);
-//      this.emit('end');
-//     })
-//     .pipe(gulp.dest('./dist/imgs'));
-// });
+gulp.task('image', async function() {
+  gulp.src('./app/imgs/fullwidth/*.jpg')
+    .pipe(cache('image'))
+    .pipe(responsive({
+      '*.jpg': [{
+        width: 450,
+        rename: { suffix: '-s' }
+      }, {
+        width: 640,
+        rename: { suffix: '-m' }
+      }, {
+        width: 1000,
+        rename: { suffix: '-l' }
+      }, {
+        width: 1600,
+        rename: { suffix: '-xl' }
+      }]
+    }, {
+      quality: 70,
+      progressive: true,
+      withMetadata: false
+    }))
+    .on('error', function(error) {
+      console.log(error.message);
+      this.emit('end');
+    })
+    .pipe(gulp.dest('./dist/imgs/fullwidth'));
+
+  gulp.src('./app/imgs/gallery/*.jpg')
+    .pipe(cache('image'))
+    .pipe(responsive({
+      '*.jpg': [{
+          width: 450,
+          rename: { suffix: '-s' }
+        }, {
+          width: 640,
+          rename: { suffix: '-m' }
+        }]
+    }, {
+      quality: 70,
+      progressive: true,
+      withMetadata: false
+    }))
+    .on('error', function(error) {
+      console.log(error.message);
+      this.emit('end');
+    })
+    .pipe(gulp.dest('./dist/imgs/gallery'));
+
+  gulp.src('./app/imgs/avatar/*.jpg')
+    .pipe(cache('image'))
+    .pipe(responsive({
+      '*.jpg': [{
+        width: 60,
+        rename: { suffix: '-s' }
+      }, {
+        width: 120,
+        rename: { suffix: '-m' }
+      }]
+    }, {
+      quality: 70,
+      progressive: true,
+      withMetadata: false
+    }))
+    .on('error', function(error) {
+      console.log(error.message);
+      this.emit('end');
+    })
+    .pipe(gulp.dest('./dist/imgs/avatar'));
+});
+
+gulp.task('clean', async function() {
+  gulp.src('./dist/**', { read: false })
+  .pipe(clean());
+})
 
 gulp.task('watch', async function() {
   gulp.watch('./app/index.html').on('change', gulp.series('html', serve.reload));
   gulp.watch('./app/(blocks|sass)/**/*.scss').on('change', gulp.series('sass'));
   gulp.watch('./app/**/*.js').on('change', gulp.series('js', serve.reload));
+  gulp.watch('.app/**/*.jpg').on('add', gulp.series('image', serve.reload));
 });
 
 gulp.task('default', gulp.series(
+  'clean',
   'html',
   'sass',
   'js',
   'font',
-  // 'image',
+  'image',
   'watch',
   'serve'
 ));

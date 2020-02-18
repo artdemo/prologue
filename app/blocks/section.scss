@@ -34,7 +34,7 @@
       }
 
       @include render(desktop_hd) {
-      	padding: 100px 88px;
+        padding: 100px 88px;
       }
     }
 
@@ -49,7 +49,7 @@
         padding: 106px 42px;
       }
 
-       @include render(desktop_hd) {
+      @include render(desktop_hd) {
         padding: 253px 58px;
       }
     }
@@ -66,7 +66,19 @@
   &_theme {
 
     &_main {
-      background: url(imgs/banner.jpg) center center/cover;
+      background: url(imgs/fullwidth/snowboard-s.jpg) center center/cover;
+
+      @include render(tablet) {
+        background: url(imgs/fullwidth/snowboard-m.jpg) center center/cover;
+      }
+
+      @include render(desktop) {
+        background: url(imgs/fullwidth/snowboard-l.jpg) center center/cover;
+      }
+
+      @include render(desktop_hd) {
+        background: url(imgs/fullwidth/snowboard-xl.jpg) center center/cover;
+      }
     }
 
     &_joy {

@@ -70,7 +70,7 @@
     }
 
     @include render(desktop_hd) {
-      font-size: 20px;
+      font-size: 23px;
     }
   }
 
@@ -86,8 +86,8 @@
       padding-left: 0;
     }
 
-    @include render(desctop_hd) {
-      font-size: 22px;
+    @include render(desktop_hd) {
+      font-size: 24px;
     }
   }
 }

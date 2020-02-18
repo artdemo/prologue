@@ -24,6 +24,16 @@
     @include render('desktop') {
       float: left;
     }
+
+    @include render('desktop_hd') {
+      width: 60px;
+      height: 60px;
+    }
+  }
+
+  &__avatar {
+    width: 100%;
+    display: block;
   }
 
   &__id {
@@ -51,7 +61,7 @@
     }
 
     @include render(desktop_hd) {
-      font-size: 14px;
+      font-size: 16px;
     }
   }
 }
