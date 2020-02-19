@@ -5,9 +5,18 @@ const gulp = require('gulp'),
   webpack = require('webpack-stream'),
   responsive = require('gulp-responsive'),
   rename = require('gulp-rename'),
-  cache = require('gulp-cached');
+  cache = require('gulp-cached'),
+  htmlmin = require('gulp-htmlmin'),
+  gulpif = require('gulp-if');
 
-sass.compile = require('node-sass');
+sass.compile = require('node-sass'); 
+
+const isBuild = true,
+  config = {};
+
+config.mode = isBuild ? 'production' : 'development';
+config.devtool = isBuild ? 'none' : 'eval-source-map';
+
 
 gulp.task('serve', async function() {
   serve.init({
@@ -19,18 +28,22 @@ gulp.task('serve', async function() {
 
 gulp.task('html', async function() {
   gulp.src('./app/index.html')
+    .pipe(htmlmin({
+      collapseWhitespace: true,
+      removeComments: true
+    }))
     .pipe(gulp.dest('./dist'));
 });
 
 gulp.task('sass', async function() {
   gulp.src('./app/sass/**/*.scss')
-    .pipe(maps.init())
-    .pipe(sass())
+    .pipe(gulpif(!isBuild, maps.init()))
+    .pipe(sass({ outputStyle: 'compressed' }))
     .on('error', function(error) {
       serve.notify(error.message, 5000);
       this.emit('end');
     })
-    .pipe(maps.write())
+    .pipe(gulpif(!isBuild, maps.write()))
     .pipe(rename('style.css'))
     .pipe(gulp.dest('./dist'))
     .pipe(serve.stream());
@@ -39,8 +52,8 @@ gulp.task('sass', async function() {
 gulp.task('js', async function() {
   gulp.src('./app/js/index.js')
     .pipe(webpack({
-      mode: 'development',
-      devtool: 'eval-source-map',
+      mode: config.mode,
+      devtool: config.devtool,
       output: {
         filename: 'bundle.js'
       }
@@ -88,12 +101,12 @@ gulp.task('image', async function() {
     .pipe(cache('image'))
     .pipe(responsive({
       '*.jpg': [{
-          width: 450,
-          rename: { suffix: '-s' }
-        }, {
-          width: 640,
-          rename: { suffix: '-m' }
-        }]
+        width: 450,
+        rename: { suffix: '-s' }
+      }, {
+        width: 640,
+        rename: { suffix: '-m' }
+      }]
     }, {
       quality: 70,
       progressive: true,
