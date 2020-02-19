@@ -50,7 +50,7 @@ gulp.task('sass', async function() {
 });
 
 gulp.task('js', async function() {
-  gulp.src('./app/js/index.js')
+  gulp.src('./app/index.js')
     .pipe(webpack({
       mode: config.mode,
       devtool: config.devtool,
@@ -144,7 +144,7 @@ gulp.task('watch', async function() {
   gulp.watch('./app/index.html').on('change', gulp.series('html', serve.reload));
   gulp.watch('./app/(blocks|sass)/**/*.scss').on('change', gulp.series('sass'));
   gulp.watch('./app/**/*.js').on('change', gulp.series('js', serve.reload));
-  gulp.watch('.app/**/*.jpg').on('add', gulp.series('image', serve.reload));
+    gulp.watch('.app/**/*.jpg').on('add', gulp.series('image', serve.reload));
 });
 
 gulp.task('default', gulp.series(
